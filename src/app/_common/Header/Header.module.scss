@@ -1,0 +1,42 @@
+.header {
+  --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+
+    & > .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 1.25rem;
+      align-items: center;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+
+      & > a {
+        display: flex;
+        align-items: center;
+        --tw-text-opacity: 1;
+        color: rgb(17 24 39 / var(--tw-text-opacity));
+        font-weight: 900;
+      }
+      & span {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+    }
+    @media (min-width: 1024px){
+      & > .container{
+        max-width: 100%;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+      & > .container {
+        max-width: 768px;
+      }
+    }
+    @media (min-width: 640px) and (max-width: 768px){
+      & > .container {
+        max-width: 640px;
+      }
+    }
+}

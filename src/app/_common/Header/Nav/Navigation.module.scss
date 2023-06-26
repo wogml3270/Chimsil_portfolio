@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-left: auto;
+
+  & ul {
+    display: flex;
+  }
+
+  & .route{
+    color: #232323;
+    transition: color .3s ease;
+    margin-right: 1.25rem;
+    cursor: pointer;
+  }
+
+  & .route:hover {
+    color: #cccccc;
+  }
+}
