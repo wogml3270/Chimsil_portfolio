@@ -1,16 +1,57 @@
 @use 'src/styles/mixins' as m;
 
+@include m.before(SD){
+  .container {
+      max-width: 640px;
+      flex-direction: column-reverse;
+      justify-content: center!important;
+
+      & .title {
+        & h1 {
+          font-size: 1.25rem;
+          line-height: 1.5;
+        }
+        & p {
+          font-size: 1rem;
+          line-height: 1;
+        }
+      }
+  }
+}
+
+@include m.between(SD, MD){
+  .container {
+    max-width: 768px;
+    flex-direction: column-reverse;
+    justify-content: center!important;
+  }
+}
+
+@include m.after(MD){
+  .container {
+    max-width: 1000px;
+
+    & .title {
+      align-items: flex-start;
+    }
+  }
+}
+
+@include m.after(LD){
+  .container {
+    max-width: 1200px;
+  }
+}
+
 .hero {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
   min-height: 100vh;
 
   & .container {
+    width: 100%;
     display: flex;
     align-items: center;
-    padding: 6rem 1.25rem;
+    justify-content: space-between;
     margin: 0 auto;
 
     & .title {
@@ -54,42 +95,3 @@
   }
 }
 
-@include m.after(LD){
-  .container {
-    max-width: 100%;
-
-    & .title {
-      align-items: flex-start!important;
-    }
-
-    & .animation {
-      width: 100%;
-    }
-  }
-}
-
-@include m.between(SD, MD){
-  .container {
-      max-width: 768px;
-      flex-direction: column-reverse;
-
-      & .title {
-        align-items: flex-start!important;
-      }
-  }
-}
-
-@include m.before(SD){
-  .container {
-      max-width: 640px;
-      flex-direction: column-reverse;
-
-      & title {
-        & h1 {
-          font-size: 2.25rem;
-          line-height: 2.5rem;
-        }
-      }
-  }
-
-}
