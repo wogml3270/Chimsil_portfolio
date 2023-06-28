@@ -1,6 +1,5 @@
 .header {
-  --tw-text-opacity: 1;
-    color: rgb(75 85 99 / var(--tw-text-opacity));
+    color: rgb(75 85 99 / 1);
 
     & > .container {
       display: flex;
@@ -10,13 +9,11 @@
       align-items: center;
       margin-right: auto;
       margin-left: auto;
-      width: 100%;
 
       & > a {
         display: flex;
         align-items: center;
-        --tw-text-opacity: 1;
-        color: rgb(17 24 39 / var(--tw-text-opacity));
+        color: rgb(17 24 39 / 1);
         font-weight: 900;
       }
       & span {

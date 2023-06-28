@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+
 import styles from "./NavMobile.module.scss";
 
 interface MenuItem {
-  href?: any;
-  title?: string;
+  href: string;
+  title: string;
 }
 
 interface NavMobileProps {
@@ -21,16 +22,16 @@ const NavMobile = ({ menu }: NavMobileProps) => {
   };
 
   return (
-    <div className={styles.navToggle} onClick={onClickToggleMenu}>
-      <input type="checkbox" />
-      <span></span>
-      <span></span>
-      <span></span>
+    <div className={styles.navToggle}>
+      <input type="checkbox" onClick={onClickToggleMenu} />
+      <span />
+      <span />
+      <span />
       {isNavOpen && (
         <nav className={styles.menu}>
           <ul>
-            {menu.map((item, idx) => (
-              <li key={idx}>
+            {menu.map((item) => (
+              <li key={item?.href}>
                 <Link href={item?.href}>{item?.title}</Link>
               </li>
             ))}

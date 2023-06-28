@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Connect = (props: Props) => {
+const Connect = () => {
   return (
     <div>Connect</div>
   )

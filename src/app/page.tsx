@@ -5,9 +5,7 @@ import '@/styles/globals.scss'
 
 const Home = () => {
   return (
-    <>
-      <Hero />
-    </>
+    <Hero />
   )
 }
 

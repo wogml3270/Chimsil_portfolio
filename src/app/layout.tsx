@@ -1,3 +1,5 @@
+import React from 'react'
+
 import '@/styles/globals.scss';
 import Header from './_common/Header';
 import Footer from './_common/Footer';

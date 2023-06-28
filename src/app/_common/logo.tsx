@@ -1,10 +1,11 @@
 import { useState, useEffect, memo } from "react";
 import Lottie from "react-lottie-player";
 import { useMediaQuery } from "react-responsive";
+
 import LogoImage from "@public/LogoImage.json";
 
 const Logo = ({ width = 150, height = 150 }) => {
-  const [styledState, setStyledState] = useState({
+  const [sizeState, setSizeState] = useState({
     width,
     height,
   });
@@ -12,12 +13,13 @@ const Logo = ({ width = 150, height = 150 }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
     isMobile
-      ? setStyledState({
+      ? setSizeState({
         width: 50,
         height: 50,
       })
-      : setStyledState({
+      : setSizeState({
         width: 150,
         height: 150,
       });
@@ -25,7 +27,7 @@ const Logo = ({ width = 150, height = 150 }) => {
 
   return (
     <div>
-      <Lottie loop animationData={LogoImage} play style={styledState} />
+      <Lottie loop animationData={LogoImage} play style={sizeState} />
     </div>
   );
 };

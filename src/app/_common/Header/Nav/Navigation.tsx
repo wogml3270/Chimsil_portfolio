@@ -1,9 +1,10 @@
 import Link from "next/link";
+
 import styles from "./Navigation.module.scss";
 
 interface MenuItem {
-  href?: any;
-  title?: string;
+  href: string;
+  title: string;
 }
 
 interface NavigationProps {
@@ -14,8 +15,8 @@ const Navigation = ({ menu }: NavigationProps) => {
   return (
     <nav className={styles.navbar}>
       <ul>
-        {menu.map((item, idx) => (
-          <li key={idx}>
+        {menu.map((item) => (
+          <li key={item.href}>
             <Link className={styles.route} href={item.href}>
               {item.title}
             </Link>
