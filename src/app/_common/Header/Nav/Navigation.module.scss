@@ -12,14 +12,14 @@
   }
 
   & .route{
-    color: #232323;
+    color: var(--header-route);
     transition: color .3s ease;
     margin-right: 1.25rem;
     cursor: pointer;
   }
 
   & .route:hover {
-    color: #cccccc;
+    color: var(--header-route-hover);
     text-decoration: underline;
   }
 }

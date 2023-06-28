@@ -28,7 +28,7 @@ const NavMobile = ({ menu }: NavMobileProps) => {
       <span />
       <span />
       {isNavOpen && (
-        <nav className={styles.menu}>
+        <nav className={styles.navbar}>
           <ul>
             {menu.map((item) => (
               <li key={item?.href}>

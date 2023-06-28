@@ -9,12 +9,12 @@
 }
 
 .navToggle a {
-  color: #232323;
+  color: var(--header-route);
   transition: color 0.3s ease;
 }
 
 .navToggle a:hover {
-  color: tomato;
+  color: var(--header-route-hover);
 }
 
 
@@ -71,7 +71,7 @@
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-.menu {
+.navbar {
   position: absolute;
   left: 43px;
   top: -32px;
@@ -86,7 +86,7 @@
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-.menu li {
+.navbar li {
   padding: 10px 0;
   font-size: 18px;
 }
@@ -94,3 +94,4 @@
 .navToggle input:checked ~ ul {
   transform: none;
 }
+
