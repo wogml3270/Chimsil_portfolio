@@ -1,14 +1,13 @@
 .header {
     color: rgb(75 85 99 / 1);
+    max-height: 150px;
 
     & > .container {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      padding: 1.25rem;
       align-items: center;
-      margin-right: auto;
-      margin-left: auto;
+      margin: 0 auto;
 
       & > a {
         display: flex;
