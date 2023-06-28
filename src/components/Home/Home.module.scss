@@ -32,7 +32,7 @@
     max-width: 1000px;
 
     & .title {
-      align-items: flex-start;
+      align-items: flex-start!important;
     }
   }
 }
@@ -43,9 +43,16 @@
   }
 }
 
+@include m.after(HD){
+  .container {
+    max-width: 1300px;
+  }
+}
+
 .hero {
   display: flex;
   min-height: 100vh;
+  padding: 0 1rem;
 
   & .container {
     width: 100%;
@@ -63,28 +70,30 @@
       & h1 {
         font-size: 1.875rem;
         line-height: 2.25rem;
-        color: #888888;
+        color: var(--home-title);
         font-weight: 500;
         margin-bottom: 1rem;
       }
       & p {
         line-height: 1.625;
         margin-bottom: 2rem;
+        color: var(--home-text);
       }
       & a {
         font-size: 1.125rem;
         line-height: 1.75rem;
         padding: 0.5rem 1.5rem;
-        background-color: cadetblue;
+        background-color: var(--home-button-bg);
         border-width: 0;
         border-radius: 0.25rem;
         display: inline-flex;
         cursor: pointer;
-        color: #ffffff;
+        color: var(--home-button-text);
 
-        ::hover {
-          background-color: darkblue;
-        }
+      }
+      & a:hover {
+        background-color: var(--home-button-bg-hover);
+        transition: all .3s ease;
       }
     }
 

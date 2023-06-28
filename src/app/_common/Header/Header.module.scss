@@ -1,6 +1,39 @@
+@use 'src/styles/mixins' as m;
+
+@include m.before(SD){
+  .container {
+    max-width: 640px;
+    padding: 1rem;
+  }
+}
+
+@include m.between(SD, MD){
+  .container {
+    max-width: 768px;
+  }
+}
+
+@include m.after(MD){
+  .container {
+    max-width: 1000px;
+  }
+}
+
+@include m.after(LD){
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@include m.after(HD){
+  .container {
+    max-width: 1300px;
+  }
+}
+
 .header {
-    color: rgb(75 85 99 / 1);
     max-height: 150px;
+    background-color: var(--header-bg);
 
     & > .container {
       display: flex;
@@ -12,27 +45,12 @@
       & > a {
         display: flex;
         align-items: center;
-        color: rgb(17 24 39 / 1);
+        color: var(--header-logo);
         font-weight: 900;
       }
       & span {
         font-size: 1.25rem;
         line-height: 1.75rem;
-      }
-    }
-    @media (min-width: 1024px){
-      & > .container{
-        max-width: 100%;
-      }
-    }
-    @media (min-width: 768px) and (max-width: 1024px){
-      & > .container {
-        max-width: 768px;
-      }
-    }
-    @media (min-width: 640px) and (max-width: 768px){
-      & > .container {
-        max-width: 640px;
       }
     }
 }
