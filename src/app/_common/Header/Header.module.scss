@@ -1,9 +1,18 @@
 @use 'src/styles/mixins' as m;
 
 @include m.before(SD){
-  .container {
-    max-width: 640px;
-    padding: 1rem;
+  .header {
+    padding: 0!important;
+
+    & .container {
+      max-width: 640px;
+      padding: 0.75rem;
+    }
+  }
+  
+  .logo {
+    width: 50px!important;
+    height: 50px!important;
   }
 }
 
@@ -34,6 +43,7 @@
 .header {
     max-height: 150px;
     background-color: var(--header-bg);
+    padding: 0 1rem;
 
     & > .container {
       display: flex;
@@ -53,4 +63,9 @@
         line-height: 1.75rem;
       }
     }
+}
+
+.logo{
+  width: 150px;
+  height: 150px; 
 }
