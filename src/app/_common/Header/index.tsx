@@ -4,7 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "react-responsive";
 
-import Logo from "@/app/_common/logo";
+import Logo from "./logo";
 import styles from "./Header.module.scss";
 
 const Navigation = dynamic(() => import("@/app/_common/Header/Nav/Navigation"), { ssr: false });
@@ -44,10 +44,10 @@ const Header = () => {
           <Logo />
           <span>CHIMSIL</span>
         </Link>
-        {!isMobile ? (
-          <Navigation menu={HEADER_ROUTES} />
-        ) : (
+        {isMobile ? (
           <NavMobile menu={HEADER_ROUTES} />
+        ) : (
+          <Navigation menu={HEADER_ROUTES} />
         )}
       </div>
     </header>
