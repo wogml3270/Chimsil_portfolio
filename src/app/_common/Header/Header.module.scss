@@ -1,9 +1,12 @@
 @use 'src/styles/mixins' as m;
 
 @include m.before(SD){
-  .container {
-    max-width: 640px;
-    padding: 1rem;
+  .header {
+    padding-top: 1rem;
+    & .container {
+      width: 100%;
+      position: fixed;
+    }
   }
 }
 
