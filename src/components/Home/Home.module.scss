@@ -1,27 +1,29 @@
 @use 'src/styles/mixins' as m;
 
 @include m.before(SD){
-  .container {
-      max-width: 640px;
+  .hero {
+    padding: 5rem 1rem!important;
+  
+    .container {
       flex-direction: column-reverse;
       justify-content: center!important;
 
       & .title {
         & h1 {
-          font-size: 1.25rem;
-          line-height: 1.5;
+          font-size: 1.5rem!important;
+          line-height: 1.5!important;
         }
         & p {
-          font-size: 1rem;
-          line-height: 1;
+          font-size: 1rem!important;
+          line-height: 1!important;
         }
       }
+    }
   }
 }
 
 @include m.between(SD, MD){
   .container {
-    max-width: 768px;
     flex-direction: column-reverse;
     justify-content: center!important;
   }
@@ -29,7 +31,6 @@
 
 @include m.after(MD){
   .container {
-    max-width: 1000px;
 
     & .title {
       align-items: flex-start!important;
@@ -37,46 +38,34 @@
   }
 }
 
-@include m.after(LD){
-  .container {
-    max-width: 1200px;
-  }
-}
-
-@include m.after(HD){
-  .container {
-    max-width: 1300px;
-  }
-}
-
 .hero {
   display: flex;
   min-height: 100vh;
-  padding: 0 1rem;
 
   & .container {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
     margin: 0 auto;
 
     & .title {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
+      gap: 1.5rem;
+      margin-left: 2.5rem;
 
       & h1 {
         font-size: 1.875rem;
         line-height: 2.25rem;
         color: var(--home-title);
         font-weight: 500;
-        margin-bottom: 1rem;
       }
       & p {
         line-height: 1.625;
-        margin-bottom: 2rem;
+        text-align: left;
         color: var(--home-text);
       }
       & a {
@@ -84,16 +73,37 @@
         line-height: 1.75rem;
         padding: 0.5rem 1.5rem;
         background-color: var(--home-button-bg);
-        border-width: 0;
-        border-radius: 0.25rem;
+        border: {
+          width: 0;
+          radius: 0.5rem;
+        }
         display: inline-flex;
-        cursor: pointer;
         color: var(--home-button-text);
+        position: relative;
 
-      }
-      & a:hover {
-        background-color: var(--home-button-bg-hover);
-        transition: all .3s ease;
+        &:hover {
+          background-color: var(--home-button-bg-hover);
+          transition: all .3s ease;
+
+          &::before {
+            content: 'CLICK';
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+            left: 0;
+            top: 0;
+            transition: opacity 0.5s linear;
+            opacity: 0;
+            
+            -webkit-background-clip: text;
+
+            background: {
+              image: var(--home-button-bg-hover-before);
+            }
+          }
+        }
       }
     }
 

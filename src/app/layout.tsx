@@ -3,6 +3,7 @@ import React from 'react'
 import '@/styles/globals.scss';
 import Header from './_common/Header';
 import Footer from './_common/Footer';
+import Container from '@/components/_common/Container';
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +24,9 @@ const RootLayout = ({ children }: Props) => {
       </head>
       <body>
         <Header />
-        {children}
+          <Container>
+            {children}
+          </Container>
         <Footer />
       </body>
     </html>

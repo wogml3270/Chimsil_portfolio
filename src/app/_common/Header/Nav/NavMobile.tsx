@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -32,7 +30,7 @@ const NavMobile = ({ menu }: NavMobileProps) => {
           <ul>
             {menu.map((item) => (
               <li key={item?.href}>
-                <Link href={item?.href}>{item?.title}</Link>
+                <Link href={item?.href} className={styles.route}>{item?.title}</Link>
               </li>
             ))}
           </ul>
