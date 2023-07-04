@@ -33,8 +33,6 @@
 .header {
     max-height: 150px;
     background-color: var(--header-bg);
-    width: 100%;
-    position: fixed;
 
     & .container {
       display: flex;
@@ -54,4 +52,9 @@
         line-height: 1.75rem;
       }
     }
+}
+
+.logo{
+  width: 150px;
+  height: 150px; 
 }
