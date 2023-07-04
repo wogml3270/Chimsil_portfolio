@@ -1,21 +1,38 @@
-.container {
-  width: 100%;
-}
+@use 'src/styles/mixins' as m;
 
-@media (min-width: 1024px){
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px){
-  .container {
-      max-width: 768px;
-  }
-}
-
-@media (max-width: 768px){
+@include m.before(SD){
   .container {
       max-width: 640px;
   }
+}
+
+@include m.between(SD, MD){
+  .container {
+    max-width: 768px;
+  }
+}
+
+@include m.after(MD){
+  .container {
+    max-width: 1000px;
+  }
+}
+
+@include m.after(LD){
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@include m.after(HD){
+  .container {
+    max-width: 1300px;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
