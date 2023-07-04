@@ -4,7 +4,9 @@ import styles from './Container.module.scss'
 
 const Container = ({ children }: any) => {
   return (
-    <div className={styles.container}>{children}</div>
+    <div className={styles.container}>
+      {children}
+    </div>
   )
 }
 

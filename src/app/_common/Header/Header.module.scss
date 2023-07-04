@@ -3,10 +3,6 @@
 @include m.before(SD){
   .header {
     padding-top: 1rem;
-    & .container {
-      width: 100%;
-      position: fixed;
-    }
   }
 }
 
@@ -37,15 +33,17 @@
 .header {
     max-height: 150px;
     background-color: var(--header-bg);
+    width: 100%;
+    position: fixed;
 
-    & > .container {
+    & .container {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
       margin: 0 auto;
 
-      & > a {
+      & a {
         display: flex;
         align-items: center;
         color: var(--header-logo);

@@ -16,10 +16,11 @@
     transition: color .3s ease;
     margin-right: 1.25rem;
     cursor: pointer;
+
+    &:hover {
+      color: var(--header-route-hover);
+      text-decoration: underline;
+    }
   }
 
-  & .route:hover {
-    color: var(--header-route-hover);
-    text-decoration: underline;
-  }
 }
