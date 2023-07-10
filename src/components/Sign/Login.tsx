@@ -14,12 +14,10 @@ const Login = () => {
 
   const handleLoginSuccess = (response: any) => {
     console.log('Kakao login successful:', response);
-    // 처리할 로직 작성
   };
 
   const handleLoginFailed = (error: any) => {
     console.error('Kakao login failed:', error);
-    // 처리할 로직 작성
   };
 
   useKakaoLogin({

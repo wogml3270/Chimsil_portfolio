@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 import '@/styles/globals.scss';
@@ -9,6 +10,12 @@ interface Props {
   children: React.ReactNode;
 }
 
+declare global {
+  interface Window {
+    Kakao: any | undefined;
+  }
+}
+
 export const metadata = {
   title: {
     absolute: 'CHIMSIL',
@@ -17,16 +24,14 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }: Props) => {
+
   return (
     <html lang='ko'>
-      <head>
-        <title>{metadata.title.absolute}</title>
-      </head>
       <body>
         <Header />
-          <Container>
-            {children}
-          </Container>
+        <Container>
+          {children}
+        </Container>
         <Footer />
       </body>
     </html>
