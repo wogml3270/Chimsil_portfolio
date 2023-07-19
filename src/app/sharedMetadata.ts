@@ -11,5 +11,3 @@ export const getMetadata = ({title, description}: Props): Metadata => {
     description,
   }
 }
-
-// dddd

@@ -1,3 +1,8 @@
 @import './_reset.module';
 @import './variable';
-@import './mixins/responsive'
+@import './mixins/responsive';
+
+.dark {
+    background-color: var(--color-black);
+    color: #fff;
+}

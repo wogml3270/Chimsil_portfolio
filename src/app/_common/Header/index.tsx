@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import { useEffect } from "react";
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import { useMediaQuery } from "react-responsive";
+import { useState } from 'react';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { useMediaQuery } from 'react-responsive';
+import { useTheme } from 'next-themes';
 
-import Logo from "./logo";
-import styles from "./Header.module.scss";
-import Login from "@/components/Sign/Login";
+import Logo from './logo';
+import styles from './Header.module.scss';
 
-const Navigation = dynamic(() => import("@/app/_common/Header/Nav/Navigation"), { ssr: false });
-const NavMobile = dynamic(() => import("@/app/_common/Header/Nav/NavMobile"), { ssr: false });
+const Navigation = dynamic(() => import('@/app/_common/Header/Nav/Navigation'), { ssr: false });
+const NavMobile = dynamic(() => import('@/app/_common/Header/Nav/NavMobile'), { ssr: false });
 
 interface MenuItem {
   href: string;
@@ -19,47 +19,53 @@ interface MenuItem {
 
 const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
+  const { theme, setTheme } = useTheme();
+
+  
   const HEADER_ROUTES: MenuItem[] = [
     {
-      href: "/",
-      title: "HOME",
+      href: '/',
+      title: 'HOME',
     },
     {
-      href: "/project",
-      title: "PROJECT",
+      href: '/project',
+      title: 'PROJECT',
     },
     {
-      href: "/about",
-      title: "ABOUT",
+      href: '/about',
+      title: 'ABOUT',
     },
     {
-      href: "/connect",
-      title: "CONNECT",
+      href: '/connect',
+      title: 'CONNECT',
     },
   ];
+  
+  const toggleDarkMode = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-    script.async = true;
-    script.onload = () => {
-      window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY);
-      console.log(window.Kakao.isInitialized());
-    };
-    document.body.appendChild(script);
-  }, []);
+  const onClickClose = () => {
+    setIsNavOpen(false);
+  };
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/">
+        <Link href='/' onClick={onClickClose}>
           <Logo />
           <span>CHIMSIL</span>
         </Link>
-        <Login />
+        <Link className={styles.loginRoute} href='/login' onClick={onClickClose}>
+          Login
+        </Link>
+        <button type='button' onClick={toggleDarkMode}>
+          {theme === 'dark' ? 'light' : 'dark'}
+        </button>
         {isMobile ? (
-          <NavMobile menu={HEADER_ROUTES} />
+          <NavMobile menu={HEADER_ROUTES} isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
         ) : (
           <Navigation menu={HEADER_ROUTES} />
         )}

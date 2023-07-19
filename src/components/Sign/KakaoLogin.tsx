@@ -2,13 +2,11 @@ import useKakaoLogin from '@/hooks/useKakaoLogin';
 
 import styles from './Sign.module.scss'
 
+const KakaoLogin = () => {
 
-const Login = () => {
-
-  // 등록한 redirectUri를 매개변수로 넣어준다.
   const kakaoLogin = () => {
     window.Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:3000/kakao',
+      redirectUri: 'http://localhost:3000/api/auth/callback/kakao',
     });
   }
 
@@ -38,4 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default KakaoLogin;

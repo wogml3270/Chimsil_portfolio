@@ -1,51 +1,35 @@
 @use 'src/styles/mixins' as m;
 
-@include m.before(SD){
-  .container {
-    max-width: 640px;
-    flex-direction: column;
-    gap: 15px;
-    padding: 1.5rem 0;
-  }
-}
-
-@include m.between(SD, MD){
-  .container {
-    max-width: 768px;
-    flex-direction: column;
-    gap: 15px;
-    padding: 1.5rem 0;
-  }
-}
-
-@include m.after(MD){
-  .container {
-    max-width: 1000px;
-  }
-}
-
-@include m.after(LD){
-  .container {
-    max-width: 1200px;
-  }
-}
-
-@include m.after(HD){
-  .container {
-    max-width: 1300px;
-  }
-}
-
 .footer {
   background-color: var(--color-bg);
 
   & .container {
     height: 6rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 1.5rem 0;
     width: 100%;
     margin: 0 auto;
+
+    @include m.after(SD){
+      max-width: 768px;
+      flex-direction: row;
+    }
+
+    @include m.after(MD){
+      max-width: 1000px;
+    }
+    
+    @include m.after(LD){
+      max-width: 1200px;
+    }
+    
+    @include m.after(HD){
+      max-width: 1300px;
+    }
 
     & .title {
       font-size: 1.25rem;
