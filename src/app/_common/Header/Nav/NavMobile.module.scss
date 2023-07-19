@@ -22,21 +22,21 @@
     -webkit-touch-callout: none;
   }
 
-  & input:checked ~ span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
-  }
-  & input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
-  }
-  & input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-  }
-  & input:checked ~ ul {
-    transform: none;
-  }
+  // & input:checked ~ span {
+  //   opacity: 1;
+  //   transform: rotate(45deg) translate(-2px, -1px);
+  //   background: var(--nav-mobile-span-open);
+  // }
+  // & input:checked ~ span:nth-last-child(2) {
+  //   transform: rotate(-45deg) translate(0, -1px);
+  // }
+  // & input:checked ~ span:nth-last-child(3) {
+  //   opacity: 0;
+  //   transform: rotate(0deg) scale(0.2, 0.2);
+  // }
+  // & input:checked ~ ul {
+  //   transform: none;
+  // }
 
   & span {
     display: block;
@@ -44,7 +44,7 @@
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: #cdcdcd;
+    background: var(--nav-mobile-span-close);
     border-radius: 3px;
     z-index: 1;
     
@@ -54,20 +54,22 @@
                 opacity 0.55s ease;
   }
 
-  & span:first-child {
-    transform-origin: 0% 0%;
-  }
+  // & span:first-child {
+  //   transform-origin: 0% 0%;
+  // }
   & span:nth-last-child(2) {
-    transform-origin: 0% 100%;
+    // transform-origin: 0% 100%;
+    width: 23px;
   }
 
   .navbar {
     position: absolute;
-    left: 43px;
+    left: 59px;
     top: -32px;
-    padding: 50px;
+    width: 150px;
+    padding: 75px 50px;
     height: 100vh;
-    background: #ededed;
+    background: var(--nav-mobile-bg);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     

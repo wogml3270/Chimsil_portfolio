@@ -1,8 +1,10 @@
 import React from 'react'
 
+import styles from './Connect.module.scss'
+
 const Connect = () => {
   return (
-    <div>Connect</div>
+    <div className={styles.container}>Connect</div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 import styles from "./NavMobile.module.scss";
@@ -10,11 +10,11 @@ interface MenuItem {
 
 interface NavMobileProps {
   menu: MenuItem[];
+  isNavOpen: boolean;
+  setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavMobile = ({ menu }: NavMobileProps) => {
-  const [isNavOpen, setIsNavOpen] = useState<Boolean>(false);
-
+const NavMobile = ({ menu, isNavOpen, setIsNavOpen }: NavMobileProps) => {
   const onClickToggleMenu = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -30,7 +30,9 @@ const NavMobile = ({ menu }: NavMobileProps) => {
           <ul>
             {menu.map((item) => (
               <li key={item?.href}>
-                <Link href={item?.href} className={styles.route}>{item?.title}</Link>
+                <Link href={item?.href} onClick={() => setIsNavOpen(false)} className={styles.route}>
+                  {item?.title}
+                </Link>
               </li>
             ))}
           </ul>
