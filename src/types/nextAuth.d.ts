@@ -1,13 +1,15 @@
-import NextAuth from "next-auth";
+import NextAuth, { SessionBase } from 'next-auth';
 
-declare module "next-auth" {
+declare module 'next-auth' {
   /**
    * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
    */
-  interface Session {
+  interface Session extends SessionBase {
     user: {
       id: string;
       email: string;
     };
   }
 }
+
+export default NextAuth;

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import useKakaoLogin from '@/hooks/useKakaoLogin';
 
 import styles from './Sign.module.scss'
