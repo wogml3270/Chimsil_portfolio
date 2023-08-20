@@ -5,9 +5,9 @@ interface Props {
   description: string;
 }
 
-export const getMetadata = ({title, description}: Props): Metadata => {
+export const getMetadata = ({ title, description }: Props): Metadata => {
   return {
     title,
     description,
-  }
-}
+  };
+};

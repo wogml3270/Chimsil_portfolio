@@ -1,36 +1,32 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react';
+/* eslint-disable no-console */
+
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import uuid from 'react-uuid'; // 임시방편 uuid key
 
 import { getNotionDataAPI } from '@/services';
 
 import styles from './Project.module.scss';
-// import { getNotionData } from '@/app/api/project/route';
+import Loading from '../Loading';
 
-const ProjectComponent = async () => {
-  const [data, setData] = useState<any>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getNotionDataAPI();
-
-      
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
-
-  console.log(data);
+const Project = () => {
+  const { data, isLoading, isError } = useQuery(['queryKey'], getNotionDataAPI);
 
   return (
     <div className={styles.container}>
-      {data?.projects?.reverse().map((item: any) => (
-        <div key={item.id} className={styles.card}>
-          <div>{item.Name.title[0].plain_text}</div>
-        </div>
-      ))}
+      {isLoading && <Loading />}
+      {isError && <div className={styles.error}>Error occurred while fetching data.</div>}
+      {data &&
+        data?.data?.projects?.map((item: any) => (
+          <div key={uuid()} className={styles.card}>
+            <div>{item?.Name?.title[0]?.plain_text}</div>
+            <div>{item?.Description.rich_text[0]?.plain_text}</div>
+          </div>
+        ))}
     </div>
   );
 };
 
-export default ProjectComponent;
+export default Project;

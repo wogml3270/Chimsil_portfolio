@@ -1,4 +1,4 @@
-import Lottie from "react-lottie-player";
+import Lottie from "lottie-react";
 
 import LogoImage from "@public/LogoImage.json";
 
@@ -11,7 +11,6 @@ const Logo = () => {
         className={styles.logo}
         animationData={LogoImage}
         loop
-        play
       />
     </div>
   );

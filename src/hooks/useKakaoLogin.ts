@@ -31,7 +31,7 @@ const useKakaoLogin = (options: KakaoLoginOptions) => {
         console.error('Kakao JavaScript SDK is not initialized.');
         return;
       }
-      
+
       const loginButton = document.querySelector('#kakaoLoginBtn');
       if (loginButton) {
         loginButton.addEventListener('click', handleKakaoLogin);

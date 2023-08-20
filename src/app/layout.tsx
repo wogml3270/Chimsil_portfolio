@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ThemeProvider } from 'next-themes';
+import { Metadata } from 'next';
 
 import Provider from './Provider';
 import Header from './_common/Header';
@@ -11,30 +11,20 @@ interface Props {
   children: ReactNode;
 }
 
-const RootLayout = ({ children }: Props) => {
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-  //   script.async = true;
-  //   script.onload = () => {
-  //     window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY);
-  //     // console.log(window.Kakao.isInitialized());
-  //   };
-  //   document.body.appendChild(script);
-  // }, []);
+export const metadata: Metadata = {
+  title: 'CHIMSIL',
+  description: '재희의 포트폴리오 블로그 입니다.',
+};
 
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang='ko'>
       <body>
-        {/* <ThemeProvider defaultTheme='light' attribute='class'> */}
-          <Provider>
-            <Header />
-            <Container>
-              {children}
-            </Container>
-            <Footer />
-          </Provider>
-        {/* </ThemeProvider> */}
+        <Provider>
+          <Header />
+          <Container>{children}</Container>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
