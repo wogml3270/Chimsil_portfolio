@@ -1,49 +1,30 @@
-'use client';
+import { ReactNode } from 'react';
+import { Metadata } from 'next';
 
-import { useEffect, ReactNode, FC } from 'react';
-import { SessionProvider } from 'next-auth/react';
-import { Session } from 'next-auth';
-import { ThemeProvider } from 'next-themes';
-
-import '@/styles/globals.scss';
+import Provider from './Provider';
 import Header from './_common/Header';
 import Footer from './_common/Footer';
 import Container from '@/components/_common/Container';
+import '@/styles/globals.scss';
 
 interface Props {
   children: ReactNode;
-  session: Session | null;
 }
 
-declare global {
-  interface Window {
-    Kakao: any | undefined;
-    Naver: any | undefined;
-  }
-}
+export const metadata: Metadata = {
+  title: 'CHIMSIL',
+  description: '재희의 포트폴리오 블로그 입니다.',
+};
 
-const RootLayout: FC<Props> = ({ children, session }) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-    script.async = true;
-    script.onload = () => {
-      window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY);
-      // console.log(window.Kakao.isInitialized());
-    };
-    document.body.appendChild(script);
-  }, []);
-
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang='ko'>
       <body>
-        <ThemeProvider defaultTheme='light' attribute='class'>
+        <Provider>
           <Header />
-          <Container>
-            <SessionProvider session={session}>{children}</SessionProvider>
-          </Container>
+          <Container>{children}</Container>
           <Footer />
-        </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

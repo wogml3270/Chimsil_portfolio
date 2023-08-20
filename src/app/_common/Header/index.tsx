@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
-import { useTheme } from 'next-themes';
 
 import Logo from './logo';
 import styles from './Header.module.scss';
@@ -21,9 +20,6 @@ const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const { theme, setTheme } = useTheme();
-
-  
   const HEADER_ROUTES: MenuItem[] = [
     {
       href: '/',
@@ -42,10 +38,6 @@ const Header = () => {
       title: 'CONNECT',
     },
   ];
-  
-  const toggleDarkMode = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   const onClickClose = () => {
     setIsNavOpen(false);
@@ -61,9 +53,6 @@ const Header = () => {
         <Link className={styles.loginRoute} href='/login' onClick={onClickClose}>
           Login
         </Link>
-        <button type='button' onClick={toggleDarkMode}>
-          {theme === 'dark' ? 'light' : 'dark'}
-        </button>
         {isMobile ? (
           <NavMobile menu={HEADER_ROUTES} isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
         ) : (

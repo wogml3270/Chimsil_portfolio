@@ -1,36 +1,25 @@
-/* eslint-disable no-console */
-import useKakaoLogin from '@/hooks/useKakaoLogin';
+'use client';
 
-import styles from './Sign.module.scss'
+import styles from './Sign.module.scss';
 
 const KakaoLogin = () => {
-
-  const kakaoLogin = () => {
-    window.Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:3000/api/auth/callback/kakao',
+  const onClick = () => {
+    if (!window.Kakao) return;
+    window.Kakao.Auth.login({
+      success: () => {
+        window.Kakao?.Auth.authorize({
+          redirectUri: 'http://localhost:3000/api/auth/callback/kakao',
+        });
+      },
+      fail: () => {
+        console.log('shit');
+      },
     });
-  }
-
-  const handleLoginSuccess = (response: any) => {
-    console.log('Kakao login successful:', response);
   };
-
-  const handleLoginFailed = (error: any) => {
-    console.error('Kakao login failed:', error);
-  };
-
-  useKakaoLogin({
-    onSuccess: handleLoginSuccess,
-    onFailed: handleLoginFailed,
-  });
 
   return (
     <div className={styles.container}>
-      <button
-        id="kakaoLoginBtn"
-        className={styles.loginBtn}
-        onClick={kakaoLogin}
-        type="button">
+      <button id='kakaoLoginBtn' className={styles.loginBtn} onClick={onClick} type='button'>
         KAKAO LOGIN
       </button>
     </div>
