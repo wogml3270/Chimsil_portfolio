@@ -24,6 +24,22 @@
     font-size: 1.25rem;
   }
 
+  .return {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f3f3;
+    color: #000;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background: #e3e3e3;
+    }
+  }
+
   .loginBtn {
     display: inline-block;
     padding: 0.5rem 1rem;
