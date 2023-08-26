@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 import styles from './Login.module.scss';
 import KakaoLogin from '@/components/Sign/KakaoLogin';
@@ -21,6 +22,9 @@ const Login = () => {
       <div className={styles.loginBox}>
         <h1 className={styles.title}>로그인</h1>
         <div>
+          <Link href='/' className={styles.return}>
+            돌아가기
+          </Link>
           <KakaoLogin />
         </div>
       </div>
